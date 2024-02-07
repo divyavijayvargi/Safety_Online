@@ -1,4 +1,4 @@
-version: 0.0.12
+version: 0.0.13
 jobId: "987"
 jobName: Workflow Details
 jobType: Source Aligned Data Product
@@ -24,7 +24,32 @@ productState:
   isDynamic: true
   alias: load_workflowdetails
   retentionVersions: ""
-  logicalSchema: ""
+  logicalSchema:
+    properties:
+      audit_id:
+        type: STRING
+        description: None
+      audit_category:
+        type: STRING
+        description: None
+      audit_type:
+        type: STRING
+        description: None
+      location:
+        type: STRING
+        description: None
+      ETL_Inserted_Date:
+        type: STRING
+        description: None
+      ETL_Modified_Date:
+        type: STRING
+        description: None
+      ETL_Created_By:
+        type: STRING
+        description: None
+      ETL_Updated_By:
+        type: STRING
+        description: None
   stateStoreType: loadDataIceberg
   isProfilingEnabled: false
   updateStrategy: Overwrite
