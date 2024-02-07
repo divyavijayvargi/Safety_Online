@@ -1,4 +1,4 @@
-version: 0.0.10
+version: 0.0.12
 jobId: "987"
 jobName: Workflow Details
 jobType: Source Aligned Data Product
@@ -15,6 +15,10 @@ inputPorts:
       enforceSchema: false
       connection: Online Safety S3 Connectivity
       dataSetUrn: urn:dv:dataset:1df3e9ea-f1a3-4bb6-8920-9ff47e72840a
+      loggingOptions:
+        printSchema: true
+        count: true
+        showData: true
     type: readDeltaTable
 productState:
   isDynamic: true
@@ -44,10 +48,10 @@ transformation:
     description: query_workflowdetails
     query: SELECT DISTINCT      wflh_request_id AS audit_id,     wflh_workflow_type
       AS audit_category,     wflh_action_taken AS
-      audit_type,     wflh_action_date AS location,     current_date AS
-      start_date,     current_date AS end_date,     'Platform_admin' AS
-      auditor_id,     'Platform_admin' AS auditee_id,     'Platform_admin' AS
-      audit_status FROM      fpay_wflh WHERE      wflh_workflow_type =
+      audit_type,     wflh_action_date AS location,     current_date as
+      ETL_Inserted_Date,   current_date as ETL_Modified_Date,   'Platform_admin'
+      as ETL_Created_By,   'Platform_admin' as
+      ETL_Updated_By   from  FROM      fpay_wflh WHERE      wflh_workflow_type =
       'SAFETYAUD'
     sequenceNo: 2
     references:
