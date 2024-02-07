@@ -1,4 +1,4 @@
-version: 0.0.6
+version: 0.0.7
 jobId: "991"
 jobName: Audit Details
 jobType: Source Aligned Data Product
@@ -300,7 +300,7 @@ productState:
       printSchema: true
       count: true
       showData: true
-  refreshInterval: 0 5 * *  *
+  refreshInterval: 0 5 * * *
 transformation:
   - alias: query_auditdetails
     type: SQL
