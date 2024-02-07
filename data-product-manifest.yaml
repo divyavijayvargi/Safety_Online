@@ -1,4 +1,4 @@
-version: 0.0.13
+version: 0.0.14
 jobId: "987"
 jobName: Workflow Details
 jobType: Source Aligned Data Product
@@ -29,27 +29,41 @@ productState:
       audit_id:
         type: STRING
         description: None
+        sourceTable: fpay_wflh
       audit_category:
         type: STRING
         description: None
+        sourceTable: fpay_wflh
       audit_type:
         type: STRING
         description: None
+        sourceColumn: wflh_action_taken
+        sourceTable: fpay_wflh
       location:
         type: STRING
         description: None
+        sourceColumn: wflh_action_date
+        sourceTable: fpay_wflh
       ETL_Inserted_Date:
         type: STRING
         description: None
+        sourceColumn: ""
+        sourceTable: ""
       ETL_Modified_Date:
         type: STRING
         description: None
+        sourceColumn: ""
+        sourceTable: ""
       ETL_Created_By:
         type: STRING
         description: None
+        sourceColumn: ""
+        sourceTable: ""
       ETL_Updated_By:
         type: STRING
         description: None
+        sourceColumn: ""
+        sourceTable: ""
   stateStoreType: loadDataIceberg
   isProfilingEnabled: false
   updateStrategy: Overwrite
