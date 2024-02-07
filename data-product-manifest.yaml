@@ -1,4 +1,4 @@
-version: 0.0.14
+version: 0.0.17
 jobId: "987"
 jobName: Workflow Details
 jobType: Source Aligned Data Product
@@ -88,9 +88,9 @@ transformation:
     query: SELECT DISTINCT      wflh_request_id AS audit_id,     wflh_workflow_type
       AS audit_category,     wflh_action_taken AS
       audit_type,     wflh_action_date AS location,     current_date as
-      ETL_Inserted_Date,   current_date as ETL_Modified_Date,   'Platform_admin'
-      as ETL_Created_By,   'Platform_admin' as
-      ETL_Updated_By   from  FROM      fpay_wflh WHERE      wflh_workflow_type =
+      ETL_Inserted_Date,  current_date as ETL_Modified_Date,  'Platform_admin'
+      as ETL_Created_By,  'Platform_admin' as
+      ETL_Updated_By   FROM      fpay_wflh WHERE      wflh_workflow_type =
       'SAFETYAUD'
     sequenceNo: 2
     references:
