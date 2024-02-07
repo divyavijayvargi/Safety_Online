@@ -1,0 +1,361 @@
+version: 0.0.6
+jobId: "991"
+jobName: Audit Details
+jobType: Source Aligned Data Product
+alias: load_auditdetails
+discoveryPort:
+  name: Audit Details
+inputPorts:
+  - alias: fpay_audt_exec_1
+    isDynamic: true
+    tableLocation: s3://msil-data-lake-curated/sr1/pay_de/fpay_audt_exec
+    optional:
+      persistDataFrame: false
+      enableDataReconciliation: false
+      enforceSchema: false
+      connection: Online Safety S3 Connectivity
+      dataSetUrn: urn:dv:dataset:6b1da16f-5c74-4ed1-888f-f31ab5c0f86f
+      loggingOptions:
+        printSchema: true
+        count: true
+        showData: true
+    type: readDeltaTable
+  - alias: fpay_audt_plan_1
+    isDynamic: true
+    tableLocation: s3://msil-data-lake-curated/sr1/pay_de/fpay_audt_plan
+    optional:
+      persistDataFrame: false
+      enableDataReconciliation: false
+      enforceSchema: false
+      connection: Online Safety S3 Connectivity
+      dataSetUrn: urn:dv:dataset:ee57d0e7-5f98-4ea1-9e54-abf7fd98a87d
+      loggingOptions:
+        printSchema: true
+        count: true
+        showData: true
+    type: readDeltaTable
+  - alias: fpay_audt_xn_1
+    isDynamic: true
+    tableLocation: s3://msil-data-lake-curated/sr1/pay_de/fpay_audt_xn
+    optional:
+      persistDataFrame: false
+      enableDataReconciliation: false
+      enforceSchema: false
+      connection: Online Safety S3 Connectivity
+      dataSetUrn: urn:dv:dataset:e88786dc-cc6b-463b-b4bd-213c6afaee46
+      loggingOptions:
+        printSchema: true
+        count: true
+        showData: true
+    type: readDeltaTable
+productState:
+  isDynamic: true
+  alias: load_auditdetails
+  retentionVersions: ""
+  logicalSchema:
+    properties:
+      audit_id:
+        type: STRING
+        description: None
+        sourceColumn: fap.plan_audt_id
+        sourceTable: fpay_audt_plan
+      audit_category:
+        type: STRING
+        description: None
+        sourceColumn: fap.plan_audt_cat
+        sourceTable: fpay_audt_plan
+      audit_type:
+        type: STRING
+        description: None
+        sourceColumn: fap.plan_audit_type
+        sourceTable: fpay_audt_plan
+      location:
+        type: STRING
+        description: None
+        sourceColumn: fap.plan_audt_locn
+        sourceTable: fpay_audt_plan
+      auditor_id:
+        type: STRING
+        description: None
+        sourceColumn: fap.plan_auditor_id
+        sourceTable: fpay_audt_plan
+      dept_code:
+        type: STRING
+        description: None
+        sourceColumn: fap.plan_dept_code
+        sourceTable: fpay_audt_plan
+      auditee_id:
+        type: STRING
+        description: None
+        sourceColumn: fap.plan_auditee_id
+        sourceTable: fpay_audt_plan
+      start_date:
+        type: STRING
+        description: None
+        sourceColumn: fap.plan_audt_stdt
+        sourceTable: fpay_audt_plan
+      end_date:
+        type: STRING
+        description: None
+        sourceColumn: fap.plan_audt_endt
+        sourceTable: fpay_audt_plan
+      audit_status:
+        type: STRING
+        description: None
+        sourceColumn: fap.plan_audit_status
+        sourceTable: fpay_audt_plan
+      exec_audit_id:
+        type: STRING
+        description: None
+        sourceColumn: fae.exec_audt_id
+        sourceTable: fpay_audt_exec
+      exec_observation_id:
+        type: STRING
+        description: None
+        sourceColumn: fae.exec_observation_id
+        sourceTable: fpay_audt_exec
+      observation_details:
+        type: STRING
+        description: None
+        sourceColumn: fae.exec_observation_details
+        sourceTable: fpay_audt_exec
+      observation_flag:
+        type: STRING
+        description: None
+        sourceColumn: fae.exec_observation_flg
+        sourceTable: fpay_audt_exec
+      audit_reference:
+        type: STRING
+        description: None
+        sourceColumn: fae.exec_audt_refernce
+        sourceTable: fpay_audt_exec
+      hazard_associated:
+        type: STRING
+        description: None
+        sourceColumn: fae.exec_hazard_assoc
+        sourceTable: fpay_audt_exec
+      work_nature:
+        type: STRING
+        description: None
+        sourceColumn: fae.exec_work_nature
+        sourceTable: fpay_audt_exec
+      severity:
+        type: STRING
+        description: None
+        sourceColumn: fae.exec_severity
+        sourceTable: fpay_audt_exec
+      exposure:
+        type: STRING
+        description: None
+        sourceColumn: fae.exec_exposure
+        sourceTable: fpay_audt_exec
+      likelihood:
+        type: STRING
+        description: None
+        sourceColumn: fae.exec_likelihood
+        sourceTable: fpay_audt_exec
+      risk:
+        type: STRING
+        description: None
+        sourceColumn: fae.exec_risk
+        sourceTable: fpay_audt_exec
+      risk_category:
+        type: STRING
+        description: None
+        sourceColumn: fae.exec_risk_category
+        sourceTable: fpay_audt_exec
+      safe_flag:
+        type: STRING
+        description: None
+        sourceColumn: fae.exec_safe_flg
+        sourceTable: fpay_audt_exec
+      contract_id:
+        type: STRING
+        description: None
+        sourceColumn: fae.exec_contract_id
+        sourceTable: fpay_audt_exec
+      recommendations:
+        type: STRING
+        description: None
+        sourceColumn: fae.exec_recommendations
+        sourceTable: fpay_audt_exec
+      exec_location:
+        type: STRING
+        description: None
+        sourceColumn: fae.exec_location
+        sourceTable: fpay_audt_exec
+      xn_audit_id:
+        type: STRING
+        description: None
+        sourceColumn: fax.xn_audt_id
+        sourceTable: fpay_audt_xn
+      xn_observation_id:
+        type: STRING
+        description: None
+        sourceColumn: fax.xn_observation_id
+        sourceTable: fpay_audt_xn
+      counter_measure:
+        type: STRING
+        description: None
+        sourceColumn: fax.xn_counter_measure
+        sourceTable: fpay_audt_xn
+      target_start_date:
+        type: STRING
+        description: None
+        sourceColumn: fax.xn_target_start_date
+        sourceTable: fpay_audt_xn
+      target_end_date:
+        type: STRING
+        description: None
+        sourceColumn: fax.xn_target_end_date
+        sourceTable: fpay_audt_xn
+      actual_start_date:
+        type: STRING
+        description: None
+        sourceColumn: fax.xn_actual_start_date
+        sourceTable: fpay_audt_xn
+      actual_end_date:
+        type: STRING
+        description: None
+        sourceColumn: fax.xn_actual_end_date
+        sourceTable: fpay_audt_xn
+      attachment_path:
+        type: STRING
+        description: None
+        sourceColumn: fax.xn_attachment_path
+        sourceTable: fpay_audt_xn
+      after_risk:
+        type: STRING
+        description: None
+        sourceColumn: fax.xn_after_risk
+        sourceTable: fpay_audt_xn
+      hierarchy_control:
+        type: STRING
+        description: None
+        sourceColumn: fax.xn_hierarchy_control
+        sourceTable: fpay_audt_xn
+      xn_severity:
+        type: STRING
+        description: None
+        sourceColumn: fax.xn_severity
+        sourceTable: fpay_audt_xn
+      xn_exposure:
+        type: STRING
+        description: None
+        sourceColumn: fax.xn_exposure
+        sourceTable: fpay_audt_xn
+      xn_likelihood:
+        type: STRING
+        description: None
+        sourceColumn: fax.xn_likelihood
+        sourceTable: fpay_audt_xn
+      xn_risk_category:
+        type: STRING
+        description: None
+        sourceColumn: fax.xn_risk_category
+        sourceTable: fpay_audt_xn
+      xn_status_flag:
+        type: STRING
+        description: None
+        sourceColumn: fax.xn_status_flg
+        sourceTable: fpay_audt_xn
+      xn_hira_updated:
+        type: STRING
+        description: None
+        sourceColumn: fax.xn_hira_updated
+        sourceTable: fpay_audt_xn
+      ETL_Inserted_Date:
+        type: STRING
+        description: None
+        sourceColumn: ""
+        sourceTable: ""
+      ETL_Modified_Date:
+        type: STRING
+        description: None
+        sourceColumn: ""
+        sourceTable: ""
+      ETL_Created_By:
+        type: STRING
+        description: None
+        sourceColumn: ""
+        sourceTable: ""
+      ETL_Updated_By:
+        type: STRING
+        description: None
+        sourceColumn: ""
+        sourceTable: ""
+  stateStoreType: loadDataIceberg
+  isProfilingEnabled: false
+  updateStrategy: Overwrite
+  tableName: msil_transformed_layer.Audit_Details
+  warehousePath: s3://msil-dataverse-quality-assurance/
+  catalogName: glue
+  optional:
+    persistDataFrame: false
+    enableDataReconciliation: false
+    enforceSchema: false
+    enforceSchemaMethod: Warning
+    catalogType: glue
+    loggingOptions:
+      printSchema: true
+      count: true
+      showData: true
+  refreshInterval: 0 5 * *  *
+transformation:
+  - alias: query_auditdetails
+    type: SQL
+    description: query_auditdetails
+    query: SELECT   fap.plan_audt_id AS audit_id,   fap.plan_audt_cat AS
+      audit_category,   fap.plan_audit_type AS audit_type,   fap.plan_audt_locn
+      AS location,   fap.plan_auditor_id AS auditor_id,   fap.plan_dept_code AS
+      dept_code,   fap.plan_auditee_id AS auditee_id,   fap.plan_audt_stdt AS
+      start_date,   fap.plan_audt_endt AS end_date,   fap.plan_audit_status AS
+      audit_status,   fae.exec_audt_id AS
+      exec_audit_id,   fae.exec_observation_id AS
+      exec_observation_id,   fae.exec_observation_details AS
+      observation_details,   fae.exec_observation_flg AS
+      observation_flag,   fae.exec_audt_refernce AS
+      audit_reference,   fae.exec_hazard_assoc AS
+      hazard_associated,   fae.exec_work_nature AS
+      work_nature,   fae.exec_severity AS severity,   fae.exec_exposure AS
+      exposure,   fae.exec_likelihood AS likelihood,   fae.exec_risk AS
+      risk,   fae.exec_risk_category AS risk_category,   fae.exec_safe_flg AS
+      safe_flag,   fae.exec_contract_id AS
+      contract_id,   fae.exec_recommendations AS
+      recommendations,   fae.exec_location AS exec_location,   fax.xn_audt_id AS
+      xn_audit_id,   fax.xn_observation_id AS
+      xn_observation_id,   fax.xn_counter_measure AS
+      counter_measure,   fax.xn_target_start_date AS
+      target_start_date,   fax.xn_target_end_date AS
+      target_end_date,   fax.xn_actual_start_date AS
+      actual_start_date,   fax.xn_actual_end_date AS
+      actual_end_date,   fax.xn_attachment_path AS
+      attachment_path,   fax.xn_after_risk AS
+      after_risk,   fax.xn_hierarchy_control AS
+      hierarchy_control,   fax.xn_severity AS xn_severity,   fax.xn_exposure AS
+      xn_exposure,   fax.xn_likelihood AS xn_likelihood,   fax.xn_risk_category
+      AS xn_risk_category,   fax.xn_status_flg AS
+      xn_status_flag,   fax.xn_hira_updated AS xn_hira_updated,   current_date
+      as ETL_Inserted_Date,   current_date as
+      ETL_Modified_Date,   'Platform_admin' as
+      ETL_Created_By,   'Platform_admin' as
+      ETL_Updated_By   from    fpay_audt_plan fap   left join fpay_audt_exec
+      fae   on fap.plan_audt_id = fae.exec_audt_id   left join fpay_audt_xn
+      fax   on fap.plan_audt_id = fax.xn_audt_id and fae.exec_observation_id =
+      fax.xn_observation_id
+    sequenceNo: 4
+    references:
+      - alias: fpay_audt_exec_1
+        sqlReference: fpay_audt_exec
+      - alias: fpay_audt_plan_1
+        sqlReference: fpay_audt_plan
+      - alias: fpay_audt_xn_1
+        sqlReference: fpay_audt_xn
+controlPort:
+  dataQualityRules: {}
+outputPort:
+  subscriptionChannels:
+    - channelType: Postgres
+      queryType: SQL
+    - channelType: Dataproduct
+      queryType: SQL
