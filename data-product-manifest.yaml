@@ -1,0 +1,63 @@
+version: 0.0.10
+jobId: "987"
+jobName: Workflow Details
+jobType: Source Aligned Data Product
+alias: load_workflowdetails
+discoveryPort:
+  name: Workflow Details
+inputPorts:
+  - alias: fpay_wflh_1
+    isDynamic: true
+    tableLocation: s3://msil-data-lake-curated/sr1/pay_de/fpay_wflh
+    optional:
+      persistDataFrame: false
+      enableDataReconciliation: false
+      enforceSchema: false
+      connection: Online Safety S3 Connectivity
+      dataSetUrn: urn:dv:dataset:1df3e9ea-f1a3-4bb6-8920-9ff47e72840a
+    type: readDeltaTable
+productState:
+  isDynamic: true
+  alias: load_workflowdetails
+  retentionVersions: ""
+  logicalSchema: ""
+  stateStoreType: loadDataIceberg
+  isProfilingEnabled: false
+  updateStrategy: Overwrite
+  tableName: msil_transformed_layer.Workflow_Details
+  warehousePath: s3://msil-dataverse-safety/
+  catalogName: glue
+  optional:
+    persistDataFrame: false
+    enableDataReconciliation: false
+    enforceSchema: false
+    enforceSchemaMethod: Warning
+    catalogType: glue
+    loggingOptions:
+      printSchema: true
+      count: true
+      showData: true
+  refreshInterval: 0 5 * * *
+transformation:
+  - alias: query_workflowdetails
+    type: SQL
+    description: query_workflowdetails
+    query: SELECT DISTINCT      wflh_request_id AS audit_id,     wflh_workflow_type
+      AS audit_category,     wflh_action_taken AS
+      audit_type,     wflh_action_date AS location,     current_date AS
+      start_date,     current_date AS end_date,     'Platform_admin' AS
+      auditor_id,     'Platform_admin' AS auditee_id,     'Platform_admin' AS
+      audit_status FROM      fpay_wflh WHERE      wflh_workflow_type =
+      'SAFETYAUD'
+    sequenceNo: 2
+    references:
+      - alias: fpay_wflh_1
+        sqlReference: fpay_wflh
+controlPort:
+  dataQualityRules: {}
+outputPort:
+  subscriptionChannels:
+    - channelType: Postgres
+      queryType: SQL
+    - channelType: Dataproduct
+      queryType: SQL
