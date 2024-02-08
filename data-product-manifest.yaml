@@ -1,0 +1,341 @@
+version: 0.0.14
+jobId: "996"
+jobName: Online Safety Audit
+jobType: Aggregated Data Product
+alias: load_Iceberg_adp_online_safety
+discoveryPort:
+  name: Online Safety Audit
+inputPorts:
+  - alias: Audit_Details_1
+    isDynamic: true
+    dataProductUrn: urn:dv:dataproduct:38852fd9-de54-4177-b6c2-cf3a312dbc87
+    filter: ""
+    projection: ""
+    optional:
+      persistDataFrame: false
+      loggingOptions:
+        printSchema: true
+        count: true
+        showData: true
+    type: dataproduct
+  - alias: Workflow_Details_1
+    isDynamic: true
+    dataProductUrn: urn:dv:dataproduct:14b66a2c-cc61-4e60-82c3-db071660f72b
+    filter: ""
+    projection: ""
+    optional:
+      persistDataFrame: false
+      loggingOptions:
+        printSchema: true
+        count: true
+        showData: true
+    type: dataproduct
+  - alias: Employee_Master_1
+    isDynamic: true
+    dataProductUrn: urn:dv:dataproduct:e0432435-1609-43cf-95eb-1396c4ce4c73
+    filter: ""
+    projection: ""
+    optional:
+      persistDataFrame: false
+    type: dataproduct
+productState:
+  isDynamic: true
+  alias: load_Iceberg_adp_online_safety
+  retentionVersions: ""
+  logicalSchema:
+    properties:
+      audit_id:
+        type: STRING
+        description: None
+        sourceColumn: audit_id
+        sourceTable: SADP_Audit_Details
+      audit_category:
+        type: STRING
+        description: None
+        sourceColumn: audit_category
+        sourceTable: SADP_Audit_Details
+      audit_type:
+        type: STRING
+        description: None
+        sourceColumn: audit_type
+        sourceTable: SADP_Audit_Details
+      location:
+        type: STRING
+        description: None
+        sourceColumn: location
+        sourceTable: SADP_Audit_Details
+      auditor_id:
+        type: STRING
+        description: None
+        sourceColumn: auditor_id
+        sourceTable: SADP_Audit_Details
+      auditor_name:
+        type: STRING
+        description: None
+        sourceColumn: auditor_nm
+        sourceTable: SADP_employee_master
+      auditor_dept:
+        type: STRING
+        description: None
+        sourceColumn: auditor_dept
+        sourceTable: SADP_employee_master
+      auditee_id:
+        type: STRING
+        description: None
+        sourceColumn: auditee_id
+        sourceTable: SADP_Audit_Details
+      auditee_name:
+        type: STRING
+        description: None
+        sourceColumn: auditee_nm
+        sourceTable: SADP_employee_master
+      auditee_dept:
+        type: STRING
+        description: None
+        sourceColumn: auditee_dept
+        sourceTable: SADP_employee_master
+      start_date:
+        type: DATETIME
+        description: None
+        sourceColumn: start_date
+        sourceTable: SADP_Audit_Details
+      end_date:
+        type: DATETIME
+        description: None
+        sourceColumn: end_date
+        sourceTable: SADP_Audit_Details
+      lcation:
+        type: STRING
+        description: None
+        sourceColumn: exec_location
+        sourceTable: SADP_Audit_Details
+      observation_details:
+        type: STRING
+        description: None
+        sourceColumn: observation_details
+        sourceTable: SADP_Audit_Details
+      reference:
+        type: STRING
+        description: None
+        sourceColumn: audit_reference
+        sourceTable: SADP_Audit_Details
+      recommendations:
+        type: STRING
+        description: None
+        sourceColumn: recommendations
+        sourceTable: SADP_Audit_Details
+      associated_hazard:
+        type: STRING
+        description: None
+        sourceColumn: hazard_associated
+        sourceTable: SADP_Audit_Details
+      severity:
+        type: STRING
+        description: None
+        sourceColumn: severity
+        sourceTable: SADP_Audit_Details
+      exposure:
+        type: STRING
+        description: None
+        sourceColumn: exposure
+        sourceTable: SADP_Audit_Details
+      likelihood:
+        type: STRING
+        description: None
+        sourceColumn: likelihood
+        sourceTable: SADP_Audit_Details
+      risk:
+        type: STRING
+        description: None
+        sourceColumn: risk
+        sourceTable: SADP_Audit_Details
+      before_risk:
+        type: STRING
+        description: None
+        sourceColumn: risk_category
+        sourceTable: SADP_Audit_Details
+      nature_of_work:
+        type: STRING
+        description: None
+        sourceColumn: work_nature
+        sourceTable: SADP_Audit_Details
+      safe_flag:
+        type: STRING
+        description: None
+        sourceColumn: safe_flag
+        sourceTable: SADP_Audit_Details
+      contract_id:
+        type: STRING
+        description: None
+        sourceColumn: contract_id
+        sourceTable: SADP_Audit_Details
+      counter_measure:
+        type: STRING
+        description: None
+        sourceColumn: counter_measure
+        sourceTable: SADP_Audit_Details
+      target_start_date:
+        type: DATETIME
+        description: None
+        sourceColumn: target_start_date
+        sourceTable: SADP_Audit_Details
+      target_end_date:
+        type: DATETIME
+        description: None
+        sourceColumn: target_end_date
+        sourceTable: SADP_Audit_Details
+      actual_start_date:
+        type: DATETIME
+        description: None
+        sourceColumn: actual_start_date
+        sourceTable: SADP_Audit_Details
+      actual_end_date:
+        type: DATETIME
+        description: None
+        sourceColumn: actual_end_date
+        sourceTable: SADP_Audit_Details
+      action_status:
+        type: STRING
+        description: None
+        sourceColumn: xn_status_flag
+        sourceTable: SADP_Audit_Details
+      observation_status:
+        type: STRING
+        description: None
+        sourceColumn: observation_flag
+        sourceTable: SADP_Audit_Details
+      audit_status:
+        type: STRING
+        description: None
+        sourceColumn: audit_status
+        sourceTable: SADP_Audit_Details
+      after_severity:
+        type: STRING
+        description: None
+        sourceColumn: xn_severity
+        sourceTable: SADP_Audit_Details
+      after_exposure:
+        type: STRING
+        description: None
+        sourceColumn: xn_exposure
+        sourceTable: SADP_Audit_Details
+      after_likelihood:
+        type: STRING
+        description: None
+        sourceColumn: xn_likelihood
+        sourceTable: SADP_Audit_Details
+      after_risk:
+        type: STRING
+        description: None
+        sourceColumn: after_risk
+        sourceTable: SADP_Audit_Details
+      after_risk_category:
+        type: STRING
+        description: None
+        sourceColumn: xn_risk_category
+        sourceTable: SADP_Audit_Details
+      hira_updated:
+        type: STRING
+        description: None
+        sourceColumn: xn_hira_updated
+        sourceTable: SADP_Audit_Details
+      hierarchy_of_control:
+        type: STRING
+        description: None
+        sourceColumn: hierarchy_control
+        sourceTable: SADP_Audit_Details
+      ETL_Inserted_Date:
+        type: STRING
+        description: None
+        sourceColumn: ""
+        sourceTable: ""
+      ETL_Modified_Date:
+        type: STRING
+        description: None
+        sourceColumn: ""
+        sourceTable: ""
+      ETL_Created_By:
+        type: STRING
+        description: None
+        sourceColumn: ""
+        sourceTable: ""
+      ETL_Updated_By:
+        type: STRING
+        description: None
+        sourceColumn: ""
+        sourceTable: ""
+  stateStoreType: loadDataIceberg
+  isProfilingEnabled: false
+  updateStrategy: Overwrite
+  tableName: msil_transformed_layer.Online_Safety_Audit
+  warehousePath: s3://msil-dataverse-safety/
+  catalogName: glue
+  optional:
+    persistDataFrame: false
+    enableDataReconciliation: false
+    enforceSchema: false
+    enforceSchemaMethod: Warning
+    catalogType: glue
+    loggingOptions:
+      printSchema: true
+      count: true
+      showData: true
+  refreshInterval: None
+transformation:
+  - alias: query_adp_online_safety
+    type: SQL
+    description: query_adp_online_safety
+    query: "select distinct   ad.audit_id as audit_id,   ad.audit_category as
+      audit_category,   ad.audit_type as audit_type,   ad.location as
+      location,   ad.auditor_id as auditor_id,   A1.auditor_nm as
+      auditor_name,   A1.auditor_dept as auditor_dept,   ad.auditee_id as
+      auditee_id,   A2.auditee_nm as auditee_name,   A2.auditee_dept as
+      auditee_dept,   ad.start_date as start_date,   ad.end_date as
+      end_date,   ad.exec_location as lcation,   ad.observation_details as
+      observation_details,   ad.audit_reference as
+      reference,   ad.recommendations as recommendations,   ad.hazard_associated
+      as associated_hazard,   ad.severity as severity,   ad.exposure as
+      exposure,   ad.likelihood as likelihood,   ad.risk as
+      risk,   ad.risk_category as before_risk,   ad.work_nature as
+      nature_of_work,   ad.safe_flag as safe_flag,   ad.contract_id as
+      contract_id,   ad.counter_measure as
+      counter_measure,   ad.target_start_date as
+      target_start_date,   ad.target_end_date as
+      target_end_date,   ad.actual_start_date as
+      actual_start_date,   ad.actual_end_date as
+      actual_end_date,   ad.xn_status_flag as
+      action_status,   ad.observation_flag as
+      observation_status,   ad.audit_status as audit_status,   ad.xn_severity as
+      after_severity,   ad.xn_exposure as after_exposure,   ad.xn_likelihood as
+      after_likelihood,   ad.after_risk as after_risk,   ad.xn_risk_category as
+      after_risk_category,   ad.xn_hira_updated as
+      hira_updated,   ad.hierarchy_control as
+      hierarchy_of_control,   current_date as ETL_Inserted_Date,   current_date
+      as ETL_Modified_Date,   'Platform_admin' as
+      ETL_Created_By,   'Platform_admin' as ETL_Updated_By from   audit_details
+      ad   left join (   select   employee_id ,   max(name)as
+      auditor_nm,   max(Department_Code) as
+      auditor_dept     from       employee_master       group
+      by       employee_id   ) A1 on ad.auditor_id = A1.employee_id   left join
+      (     select      employee_id ,   max(name)as
+      auditee_nm,   max(Department_Code) as
+      auditee_dept     from        employee_master       group
+      by      employee_id   ) A2 on ad.auditee_id = A2.employee_id   join
+      (select distinct wflh_request_id from workflow_details) fw on ad.audit_id
+      = fw.wflh_request_id                     "
+    sequenceNo: 4
+    references:
+      - alias: Audit_Details_1
+        sqlReference: audit_details
+      - alias: Workflow_Details_1
+        sqlReference: workflow_details
+      - alias: Employee_Master_1
+        sqlReference: employee_master
+controlPort:
+  dataQualityRules: {}
+outputPort:
+  subscriptionChannels:
+    - channelType: Postgres
+      queryType: SQL
+    - channelType: Dataproduct
+      queryType: SQL
