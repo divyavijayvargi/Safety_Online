@@ -1,4 +1,4 @@
-version: 0.0.8
+version: 0.0.10
 jobId: "991"
 jobName: Audit Details
 jobType: Source Aligned Data Product
@@ -8,7 +8,7 @@ discoveryPort:
 inputPorts:
   - alias: fpay_audt_exec_1
     isDynamic: true
-    tableLocation: s3://msil-data-lake-curated/sr1/pay_de/fpay_audt_exec
+    tableLocation: s3://msil-cross-account-a-dmm815w1we84nbxaoixydgxordneraps3b-s3alias/sr1/pay_de/fpay_audt_exec/
     optional:
       persistDataFrame: false
       enableDataReconciliation: false
@@ -22,7 +22,7 @@ inputPorts:
     type: readDeltaTable
   - alias: fpay_audt_plan_1
     isDynamic: true
-    tableLocation: s3://msil-data-lake-curated/sr1/pay_de/fpay_audt_plan
+    tableLocation: s3://msil-cross-account-a-dmm815w1we84nbxaoixydgxordneraps3b-s3alias/sr1/pay_de/fpay_audt_plan/
     optional:
       persistDataFrame: false
       enableDataReconciliation: false
@@ -36,7 +36,7 @@ inputPorts:
     type: readDeltaTable
   - alias: fpay_audt_xn_1
     isDynamic: true
-    tableLocation: s3://msil-data-lake-curated/sr1/pay_de/fpay_audt_xn
+    tableLocation: s3://msil-cross-account-a-dmm815w1we84nbxaoixydgxordneraps3b-s3alias/sr1/pay_de/fpay_audt_xn/
     optional:
       persistDataFrame: false
       enableDataReconciliation: false
@@ -57,212 +57,212 @@ productState:
       audit_id:
         type: STRING
         description: None
-        sourceColumn: fap.plan_audt_id
+        sourceColumn: plan_audt_id
         sourceTable: fpay_audt_plan
       audit_category:
         type: STRING
         description: None
-        sourceColumn: fap.plan_audt_cat
+        sourceColumn: plan_audt_cat
         sourceTable: fpay_audt_plan
       audit_type:
         type: STRING
         description: None
-        sourceColumn: fap.plan_audit_type
+        sourceColumn: plan_audit_type
         sourceTable: fpay_audt_plan
       location:
         type: STRING
         description: None
-        sourceColumn: fap.plan_audt_locn
+        sourceColumn: plan_audt_locn
         sourceTable: fpay_audt_plan
       auditor_id:
         type: STRING
         description: None
-        sourceColumn: fap.plan_auditor_id
+        sourceColumn: plan_auditor_id
         sourceTable: fpay_audt_plan
       dept_code:
         type: STRING
         description: None
-        sourceColumn: fap.plan_dept_code
+        sourceColumn: plan_dept_code
         sourceTable: fpay_audt_plan
       auditee_id:
         type: STRING
         description: None
-        sourceColumn: fap.plan_auditee_id
+        sourceColumn: plan_auditee_id
         sourceTable: fpay_audt_plan
       start_date:
         type: STRING
         description: None
-        sourceColumn: fap.plan_audt_stdt
+        sourceColumn: plan_audt_stdt
         sourceTable: fpay_audt_plan
       end_date:
         type: STRING
         description: None
-        sourceColumn: fap.plan_audt_endt
+        sourceColumn: plan_audt_endt
         sourceTable: fpay_audt_plan
       audit_status:
         type: STRING
         description: None
-        sourceColumn: fap.plan_audit_status
+        sourceColumn: plan_audit_status
         sourceTable: fpay_audt_plan
       exec_audit_id:
         type: STRING
         description: None
-        sourceColumn: fae.exec_audt_id
+        sourceColumn: exec_audt_id
         sourceTable: fpay_audt_exec
       exec_observation_id:
         type: STRING
         description: None
-        sourceColumn: fae.exec_observation_id
+        sourceColumn: exec_observation_id
         sourceTable: fpay_audt_exec
       observation_details:
         type: STRING
         description: None
-        sourceColumn: fae.exec_observation_details
+        sourceColumn: exec_observation_details
         sourceTable: fpay_audt_exec
       observation_flag:
         type: STRING
         description: None
-        sourceColumn: fae.exec_observation_flg
+        sourceColumn: exec_observation_flg
         sourceTable: fpay_audt_exec
       audit_reference:
         type: STRING
         description: None
-        sourceColumn: fae.exec_audt_refernce
+        sourceColumn: exec_audt_refernce
         sourceTable: fpay_audt_exec
       hazard_associated:
         type: STRING
         description: None
-        sourceColumn: fae.exec_hazard_assoc
+        sourceColumn: exec_hazard_assoc
         sourceTable: fpay_audt_exec
       work_nature:
         type: STRING
         description: None
-        sourceColumn: fae.exec_work_nature
+        sourceColumn: exec_work_nature
         sourceTable: fpay_audt_exec
       severity:
         type: STRING
         description: None
-        sourceColumn: fae.exec_severity
+        sourceColumn: exec_severity
         sourceTable: fpay_audt_exec
       exposure:
         type: STRING
         description: None
-        sourceColumn: fae.exec_exposure
+        sourceColumn: exec_exposure
         sourceTable: fpay_audt_exec
       likelihood:
         type: STRING
         description: None
-        sourceColumn: fae.exec_likelihood
+        sourceColumn: exec_likelihood
         sourceTable: fpay_audt_exec
       risk:
         type: STRING
         description: None
-        sourceColumn: fae.exec_risk
+        sourceColumn: exec_risk
         sourceTable: fpay_audt_exec
       risk_category:
         type: STRING
         description: None
-        sourceColumn: fae.exec_risk_category
+        sourceColumn: exec_risk_category
         sourceTable: fpay_audt_exec
       safe_flag:
         type: STRING
         description: None
-        sourceColumn: fae.exec_safe_flg
+        sourceColumn: exec_safe_flg
         sourceTable: fpay_audt_exec
       contract_id:
         type: STRING
         description: None
-        sourceColumn: fae.exec_contract_id
+        sourceColumn: exec_contract_id
         sourceTable: fpay_audt_exec
       recommendations:
         type: STRING
         description: None
-        sourceColumn: fae.exec_recommendations
+        sourceColumn: exec_recommendations
         sourceTable: fpay_audt_exec
       exec_location:
         type: STRING
         description: None
-        sourceColumn: fae.exec_location
+        sourceColumn: exec_location
         sourceTable: fpay_audt_exec
       xn_audit_id:
         type: STRING
         description: None
-        sourceColumn: fax.xn_audt_id
+        sourceColumn: xn_audt_id
         sourceTable: fpay_audt_xn
       xn_observation_id:
         type: STRING
         description: None
-        sourceColumn: fax.xn_observation_id
+        sourceColumn: xn_observation_id
         sourceTable: fpay_audt_xn
       counter_measure:
         type: STRING
         description: None
-        sourceColumn: fax.xn_counter_measure
+        sourceColumn: xn_counter_measure
         sourceTable: fpay_audt_xn
       target_start_date:
         type: STRING
         description: None
-        sourceColumn: fax.xn_target_start_date
+        sourceColumn: xn_target_start_date
         sourceTable: fpay_audt_xn
       target_end_date:
         type: STRING
         description: None
-        sourceColumn: fax.xn_target_end_date
+        sourceColumn: xn_target_end_date
         sourceTable: fpay_audt_xn
       actual_start_date:
         type: STRING
         description: None
-        sourceColumn: fax.xn_actual_start_date
+        sourceColumn: xn_actual_start_date
         sourceTable: fpay_audt_xn
       actual_end_date:
         type: STRING
         description: None
-        sourceColumn: fax.xn_actual_end_date
+        sourceColumn: xn_actual_end_date
         sourceTable: fpay_audt_xn
       attachment_path:
         type: STRING
         description: None
-        sourceColumn: fax.xn_attachment_path
+        sourceColumn: xn_attachment_path
         sourceTable: fpay_audt_xn
       after_risk:
         type: STRING
         description: None
-        sourceColumn: fax.xn_after_risk
+        sourceColumn: xn_after_risk
         sourceTable: fpay_audt_xn
       hierarchy_control:
         type: STRING
         description: None
-        sourceColumn: fax.xn_hierarchy_control
+        sourceColumn: xn_hierarchy_control
         sourceTable: fpay_audt_xn
       xn_severity:
         type: STRING
         description: None
-        sourceColumn: fax.xn_severity
+        sourceColumn: xn_severity
         sourceTable: fpay_audt_xn
       xn_exposure:
         type: STRING
         description: None
-        sourceColumn: fax.xn_exposure
+        sourceColumn: xn_exposure
         sourceTable: fpay_audt_xn
       xn_likelihood:
         type: STRING
         description: None
-        sourceColumn: fax.xn_likelihood
+        sourceColumn: xn_likelihood
         sourceTable: fpay_audt_xn
       xn_risk_category:
         type: STRING
         description: None
-        sourceColumn: fax.xn_risk_category
+        sourceColumn: xn_risk_category
         sourceTable: fpay_audt_xn
       xn_status_flag:
         type: STRING
         description: None
-        sourceColumn: fax.xn_status_flg
+        sourceColumn: xn_status_flg
         sourceTable: fpay_audt_xn
       xn_hira_updated:
         type: STRING
         description: None
-        sourceColumn: fax.xn_hira_updated
+        sourceColumn: xn_hira_updated
         sourceTable: fpay_audt_xn
       ETL_Inserted_Date:
         type: STRING
@@ -300,7 +300,7 @@ productState:
       printSchema: true
       count: true
       showData: true
-  refreshInterval: 0 5 * * *
+  refreshInterval: 0 4 * * *
 transformation:
   - alias: query_auditdetails
     type: SQL
@@ -352,7 +352,12 @@ transformation:
       - alias: fpay_audt_xn_1
         sqlReference: fpay_audt_xn
 controlPort:
-  dataQualityRules: {}
+  dataQualityRules:
+    NullValueCheck:
+      productState:
+        checks:
+          - column: audit_id
+        referenceAlias: load_auditdetails
 outputPort:
   subscriptionChannels:
     - channelType: Postgres
