@@ -1,4 +1,4 @@
-version: 0.0.21
+version: 0.0.22
 jobId: "987"
 jobName: Workflow Details
 jobType: Source Aligned Data Product
@@ -29,10 +29,12 @@ productState:
       wflh_request_id:
         type: STRING
         description: None
+        sourceColumn: wflh_request_id
         sourceTable: fpay_wflh
       wflh_workflow_type:
         type: STRING
         description: None
+        sourceColumn: wflh_workflow_type
         sourceTable: fpay_wflh
       wflh_action_taken:
         type: STRING
