@@ -1,4 +1,4 @@
-version: 0.0.17
+version: 0.0.21
 jobId: "987"
 jobName: Workflow Details
 jobType: Source Aligned Data Product
@@ -8,7 +8,7 @@ discoveryPort:
 inputPorts:
   - alias: fpay_wflh_1
     isDynamic: true
-    tableLocation: s3://msil-data-lake-curated/sr1/pay_de/fpay_wflh
+    tableLocation: s3://msil-cross-account-a-dmm815w1we84nbxaoixydgxordneraps3b-s3alias/sr1/pay_de/fpay_wflh/
     optional:
       persistDataFrame: false
       enableDataReconciliation: false
@@ -26,20 +26,20 @@ productState:
   retentionVersions: ""
   logicalSchema:
     properties:
-      audit_id:
+      wflh_request_id:
         type: STRING
         description: None
         sourceTable: fpay_wflh
-      audit_category:
+      wflh_workflow_type:
         type: STRING
         description: None
         sourceTable: fpay_wflh
-      audit_type:
+      wflh_action_taken:
         type: STRING
         description: None
         sourceColumn: wflh_action_taken
         sourceTable: fpay_wflh
-      location:
+      wflh_action_date:
         type: STRING
         description: None
         sourceColumn: wflh_action_date
@@ -80,24 +80,28 @@ productState:
       printSchema: true
       count: true
       showData: true
-  refreshInterval: 0 5 * * *
+  refreshInterval: 0 4 * * *
 transformation:
   - alias: query_workflowdetails
     type: SQL
     description: query_workflowdetails
-    query: SELECT DISTINCT      wflh_request_id AS audit_id,     wflh_workflow_type
-      AS audit_category,     wflh_action_taken AS
-      audit_type,     wflh_action_date AS location,     current_date as
-      ETL_Inserted_Date,  current_date as ETL_Modified_Date,  'Platform_admin'
-      as ETL_Created_By,  'Platform_admin' as
-      ETL_Updated_By   FROM      fpay_wflh WHERE      wflh_workflow_type =
+    query: SELECT DISTINCT      wflh_request_id ,     wflh_workflow_type
+      ,     wflh_action_taken ,     wflh_action_date ,     current_date as
+      ETL_Inserted_Date,   current_date as ETL_Modified_Date,   'Platform_admin'
+      as ETL_Created_By,   'Platform_admin' as
+      ETL_Updated_By   from     fpay_wflh WHERE      wflh_workflow_type =
       'SAFETYAUD'
     sequenceNo: 2
     references:
       - alias: fpay_wflh_1
         sqlReference: fpay_wflh
 controlPort:
-  dataQualityRules: {}
+  dataQualityRules:
+    NullValueCheck:
+      productState:
+        checks:
+          - column: wflh_request_id
+        referenceAlias: load_workflowdetails
 outputPort:
   subscriptionChannels:
     - channelType: Postgres
