@@ -1,4 +1,4 @@
-version: 0.0.26
+version: 0.0.23
 jobId: "987"
 jobName: Workflow Details
 jobType: Source Aligned Data Product
@@ -28,22 +28,22 @@ productState:
     properties:
       wflh_request_id:
         type: STRING
-        description: None
+        description: Unique id for workflow request
         sourceColumn: wflh_request_id
         sourceTable: fpay_wflh
       wflh_workflow_type:
         type: STRING
-        description: None
+        description: Type of workflow
         sourceColumn: wflh_workflow_type
         sourceTable: fpay_wflh
       wflh_action_taken:
         type: STRING
-        description: None
+        description: workflow action taken
         sourceColumn: wflh_action_taken
         sourceTable: fpay_wflh
       wflh_action_date:
         type: STRING
-        description: None
+        description: action date
         sourceColumn: wflh_action_date
         sourceTable: fpay_wflh
       ETL_Inserted_Date:
