@@ -1,4 +1,4 @@
-version: 0.0.14
+version: 0.0.16
 jobId: "996"
 jobName: Online Safety Audit
 jobType: Aggregated Data Product
@@ -332,7 +332,12 @@ transformation:
       - alias: Employee_Master_1
         sqlReference: employee_master
 controlPort:
-  dataQualityRules: {}
+  dataQualityRules:
+    NullValueCheck:
+      productState:
+        checks:
+          - column: audit_id
+        referenceAlias: load_Iceberg_adp_online_safety
 outputPort:
   subscriptionChannels:
     - channelType: Postgres
