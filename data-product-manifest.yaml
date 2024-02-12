@@ -1,4 +1,4 @@
-version: 0.0.23
+version: 0.0.24
 jobId: "987"
 jobName: Workflow Details
 jobType: Source Aligned Data Product
@@ -48,22 +48,22 @@ productState:
         sourceTable: fpay_wflh
       ETL_Inserted_Date:
         type: STRING
-        description: None
+        description: " "
         sourceColumn: ""
         sourceTable: ""
       ETL_Modified_Date:
         type: STRING
-        description: None
+        description: " "
         sourceColumn: ""
         sourceTable: ""
       ETL_Created_By:
         type: STRING
-        description: None
+        description: " "
         sourceColumn: ""
         sourceTable: ""
       ETL_Updated_By:
         type: STRING
-        description: None
+        description: " "
         sourceColumn: ""
         sourceTable: ""
   stateStoreType: loadDataIceberg
