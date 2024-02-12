@@ -1,4 +1,4 @@
-version: 0.0.16
+version: 0.0.17
 jobId: "996"
 jobName: Online Safety Audit
 jobType: Aggregated Data Product
@@ -46,222 +46,226 @@ productState:
     properties:
       audit_id:
         type: STRING
-        description: None
+        description: unique identification code generated for each new audit
         sourceColumn: audit_id
         sourceTable: SADP_Audit_Details
       audit_category:
         type: STRING
-        description: None
+        description: Category of audit
         sourceColumn: audit_category
         sourceTable: SADP_Audit_Details
       audit_type:
         type: STRING
-        description: None
+        description: Type of audit
         sourceColumn: audit_type
         sourceTable: SADP_Audit_Details
       location:
         type: STRING
-        description: None
+        description: Location of audit
         sourceColumn: location
         sourceTable: SADP_Audit_Details
       auditor_id:
         type: STRING
-        description: None
+        description: Employee id of auditor
         sourceColumn: auditor_id
         sourceTable: SADP_Audit_Details
       auditor_name:
         type: STRING
-        description: None
+        description: name of the auditor
         sourceColumn: auditor_nm
         sourceTable: SADP_employee_master
       auditor_dept:
         type: STRING
-        description: None
+        description: department of auditor
         sourceColumn: auditor_dept
         sourceTable: SADP_employee_master
       auditee_id:
         type: STRING
-        description: None
+        description: employee id of auditee
         sourceColumn: auditee_id
         sourceTable: SADP_Audit_Details
       auditee_name:
         type: STRING
-        description: None
+        description: name of the auditee
         sourceColumn: auditee_nm
         sourceTable: SADP_employee_master
       auditee_dept:
         type: STRING
-        description: None
+        description: department of auditee
         sourceColumn: auditee_dept
         sourceTable: SADP_employee_master
       start_date:
         type: DATETIME
-        description: None
+        description: start date of audit
         sourceColumn: start_date
         sourceTable: SADP_Audit_Details
       end_date:
         type: DATETIME
-        description: None
+        description: end date of audit
         sourceColumn: end_date
         sourceTable: SADP_Audit_Details
       lcation:
         type: STRING
-        description: None
+        description: Location of audit
         sourceColumn: exec_location
         sourceTable: SADP_Audit_Details
       observation_details:
         type: STRING
-        description: None
+        description: "details of observations made "
         sourceColumn: observation_details
         sourceTable: SADP_Audit_Details
       reference:
         type: STRING
-        description: None
+        description: Audit Reference
         sourceColumn: audit_reference
         sourceTable: SADP_Audit_Details
       recommendations:
         type: STRING
-        description: None
+        description: recommendation made by auditor
         sourceColumn: recommendations
         sourceTable: SADP_Audit_Details
       associated_hazard:
         type: STRING
-        description: None
+        description: Associated hazard
         sourceColumn: hazard_associated
         sourceTable: SADP_Audit_Details
       severity:
         type: STRING
-        description: None
+        description: numerical value assigned to Severity based on observation
         sourceColumn: severity
         sourceTable: SADP_Audit_Details
       exposure:
         type: STRING
-        description: None
+        description: numerical value assigned to Exposure based on observation
         sourceColumn: exposure
         sourceTable: SADP_Audit_Details
       likelihood:
         type: STRING
-        description: None
+        description: numerical value assigned to Likelihood based on observation
         sourceColumn: likelihood
         sourceTable: SADP_Audit_Details
       risk:
         type: STRING
-        description: None
+        description: numerical value assigned to Risk based on observation
         sourceColumn: risk
         sourceTable: SADP_Audit_Details
       before_risk:
         type: STRING
-        description: None
+        description: level of Risk based on observation
         sourceColumn: risk_category
         sourceTable: SADP_Audit_Details
       nature_of_work:
         type: STRING
-        description: None
+        description: Nature of work
         sourceColumn: work_nature
         sourceTable: SADP_Audit_Details
       safe_flag:
         type: STRING
-        description: None
+        description: flag for safety conditions
         sourceColumn: safe_flag
         sourceTable: SADP_Audit_Details
       contract_id:
         type: STRING
-        description: None
+        description: unique code for contract
         sourceColumn: contract_id
         sourceTable: SADP_Audit_Details
       counter_measure:
         type: STRING
-        description: None
+        description: Measure taken by auditee against auditor's recommendation
         sourceColumn: counter_measure
         sourceTable: SADP_Audit_Details
       target_start_date:
         type: DATETIME
-        description: None
+        description: target start date of audit
         sourceColumn: target_start_date
         sourceTable: SADP_Audit_Details
       target_end_date:
         type: DATETIME
-        description: None
+        description: target end date for closing of audit
         sourceColumn: target_end_date
         sourceTable: SADP_Audit_Details
       actual_start_date:
         type: DATETIME
-        description: None
+        description: actual start date of audit
         sourceColumn: actual_start_date
         sourceTable: SADP_Audit_Details
       actual_end_date:
         type: DATETIME
-        description: None
+        description: actual end date for closing of audit
         sourceColumn: actual_end_date
         sourceTable: SADP_Audit_Details
       action_status:
         type: STRING
-        description: None
+        description: status of audit updated by auditee
         sourceColumn: xn_status_flag
         sourceTable: SADP_Audit_Details
       observation_status:
         type: STRING
-        description: None
+        description: observation status
         sourceColumn: observation_flag
         sourceTable: SADP_Audit_Details
       audit_status:
         type: STRING
-        description: None
+        description: status of audit updated by auditor
         sourceColumn: audit_status
         sourceTable: SADP_Audit_Details
       after_severity:
         type: STRING
-        description: None
+        description: numerical value assigned to Severity after counter measure is
+          implemented by auditee
         sourceColumn: xn_severity
         sourceTable: SADP_Audit_Details
       after_exposure:
         type: STRING
-        description: None
+        description: numerical value assigned to Exposure after counter measure is
+          implemented by auditee
         sourceColumn: xn_exposure
         sourceTable: SADP_Audit_Details
       after_likelihood:
         type: STRING
-        description: None
+        description: numerical value assigned to Likelihood after counter measure is
+          implemented by auditee
         sourceColumn: xn_likelihood
         sourceTable: SADP_Audit_Details
       after_risk:
         type: STRING
-        description: None
+        description: numerical value assigned to Risk after counter measure is
+          implemented by auditee
         sourceColumn: after_risk
         sourceTable: SADP_Audit_Details
       after_risk_category:
         type: STRING
-        description: None
+        description: level of Risk after counter measure is implemented by auditee
         sourceColumn: xn_risk_category
         sourceTable: SADP_Audit_Details
       hira_updated:
         type: STRING
-        description: None
+        description: Whether HIRA is updated
         sourceColumn: xn_hira_updated
         sourceTable: SADP_Audit_Details
       hierarchy_of_control:
         type: STRING
-        description: None
+        description: hierarchy of control
         sourceColumn: hierarchy_control
         sourceTable: SADP_Audit_Details
       ETL_Inserted_Date:
         type: STRING
-        description: None
+        description: ""
         sourceColumn: ""
         sourceTable: ""
       ETL_Modified_Date:
         type: STRING
-        description: None
+        description: ""
         sourceColumn: ""
         sourceTable: ""
       ETL_Created_By:
         type: STRING
-        description: None
+        description: ""
         sourceColumn: ""
         sourceTable: ""
       ETL_Updated_By:
         type: STRING
-        description: None
+        description: ""
         sourceColumn: ""
         sourceTable: ""
   stateStoreType: loadDataIceberg
