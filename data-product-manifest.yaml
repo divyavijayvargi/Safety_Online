@@ -1,4 +1,4 @@
-version: 0.0.28
+version: 0.0.26
 jobId: "987"
 jobName: Workflow Details
 jobType: Source Aligned Data Product
@@ -47,12 +47,12 @@ productState:
         sourceColumn: wflh_action_date
         sourceTable: fpay_wflh
       ETL_Inserted_Date:
-        type: STRING
+        type: DATETIME
         description: " "
         sourceColumn: ""
         sourceTable: ""
       ETL_Modified_Date:
-        type: STRING
+        type: DATETIME
         description: " "
         sourceColumn: ""
         sourceTable: ""
