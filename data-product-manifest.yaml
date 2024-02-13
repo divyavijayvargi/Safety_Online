@@ -1,4 +1,4 @@
-version: 0.0.17
+version: 0.0.18
 jobId: "996"
 jobName: Online Safety Audit
 jobType: Aggregated Data Product
@@ -94,15 +94,15 @@ productState:
         description: department of auditee
         sourceColumn: auditee_dept
         sourceTable: SADP_employee_master
-      start_date:
+      start_timestamp:
         type: DATETIME
-        description: start date of audit
-        sourceColumn: start_date
+        description: start timestamp of audit
+        sourceColumn: start_timestamp
         sourceTable: SADP_Audit_Details
-      end_date:
+      end_timestamp:
         type: DATETIME
-        description: end date of audit
-        sourceColumn: end_date
+        description: end timestamp of audit
+        sourceColumn: end_timestamp
         sourceTable: SADP_Audit_Details
       lcation:
         type: STRING
@@ -174,29 +174,29 @@ productState:
         description: Measure taken by auditee against auditor's recommendation
         sourceColumn: counter_measure
         sourceTable: SADP_Audit_Details
-      target_start_date:
+      target_start_timestamp:
         type: DATETIME
-        description: target start date of audit
-        sourceColumn: target_start_date
+        description: target start timestamp of audit
+        sourceColumn: target_start_timestamp
         sourceTable: SADP_Audit_Details
-      target_end_date:
+      target_end_timestamp:
         type: DATETIME
-        description: target end date for closing of audit
-        sourceColumn: target_end_date
+        description: target end timestamp for closing of audit
+        sourceColumn: target_end_timestamp
         sourceTable: SADP_Audit_Details
-      actual_start_date:
+      actual_start_timestamp:
         type: DATETIME
-        description: actual start date of audit
-        sourceColumn: actual_start_date
+        description: actual start timestamp of audit
+        sourceColumn: actual_start_timestamp
         sourceTable: SADP_Audit_Details
-      actual_end_date:
+      actual_end_timestamp:
         type: DATETIME
-        description: actual end date for closing of audit
-        sourceColumn: actual_end_date
+        description: actual end timestamp for closing of audit
+        sourceColumn: actual_end_timestamp
         sourceTable: SADP_Audit_Details
       action_status:
         type: STRING
-        description: status of audit updated by auditee
+        description: status of audit uptimestampd by auditee
         sourceColumn: xn_status_flag
         sourceTable: SADP_Audit_Details
       observation_status:
@@ -206,7 +206,7 @@ productState:
         sourceTable: SADP_Audit_Details
       audit_status:
         type: STRING
-        description: status of audit updated by auditor
+        description: status of audit uptimestampd by auditor
         sourceColumn: audit_status
         sourceTable: SADP_Audit_Details
       after_severity:
@@ -238,10 +238,10 @@ productState:
         description: level of Risk after counter measure is implemented by auditee
         sourceColumn: xn_risk_category
         sourceTable: SADP_Audit_Details
-      hira_updated:
+      hira_uptimestampd:
         type: STRING
-        description: Whether HIRA is updated
-        sourceColumn: xn_hira_updated
+        description: Whether HIRA is uptimestampd
+        sourceColumn: xn_hira_uptimestampd
         sourceTable: SADP_Audit_Details
       hierarchy_of_control:
         type: STRING
@@ -249,12 +249,12 @@ productState:
         sourceColumn: hierarchy_control
         sourceTable: SADP_Audit_Details
       ETL_Inserted_Date:
-        type: STRING
+        type: DATETIME
         description: ""
         sourceColumn: ""
         sourceTable: ""
       ETL_Modified_Date:
-        type: STRING
+        type: DATETIME
         description: ""
         sourceColumn: ""
         sourceTable: ""
@@ -263,7 +263,7 @@ productState:
         description: ""
         sourceColumn: ""
         sourceTable: ""
-      ETL_Updated_By:
+      ETL_Uptimestampd_By:
         type: STRING
         description: ""
         sourceColumn: ""
