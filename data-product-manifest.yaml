@@ -1,4 +1,4 @@
-version: 0.0.18
+version: 0.0.19
 jobId: "996"
 jobName: Online Safety Audit
 jobType: Aggregated Data Product
@@ -196,7 +196,7 @@ productState:
         sourceTable: SADP_Audit_Details
       action_status:
         type: STRING
-        description: status of audit uptimestampd by auditee
+        description: status of audit updated by auditee
         sourceColumn: xn_status_flag
         sourceTable: SADP_Audit_Details
       observation_status:
@@ -206,7 +206,7 @@ productState:
         sourceTable: SADP_Audit_Details
       audit_status:
         type: STRING
-        description: status of audit uptimestampd by auditor
+        description: status of audit updated by auditor
         sourceColumn: audit_status
         sourceTable: SADP_Audit_Details
       after_severity:
@@ -240,7 +240,7 @@ productState:
         sourceTable: SADP_Audit_Details
       hira_uptimestampd:
         type: STRING
-        description: Whether HIRA is uptimestampd
+        description: Whether HIRA is updated
         sourceColumn: xn_hira_uptimestampd
         sourceTable: SADP_Audit_Details
       hierarchy_of_control:
