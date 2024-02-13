@@ -1,4 +1,4 @@
-version: 0.0.19
+version: 0.0.21
 jobId: "996"
 jobName: Online Safety Audit
 jobType: Aggregated Data Product
@@ -271,7 +271,7 @@ productState:
   stateStoreType: loadDataIceberg
   isProfilingEnabled: false
   updateStrategy: Overwrite
-  tableName: msil_transformed_layer.Online_Safety_Audit
+  tableName: msil_dataverse_safety_catalog.Online_Safety_Audit
   warehousePath: s3://msil-dataverse-safety/
   catalogName: glue
   optional:
