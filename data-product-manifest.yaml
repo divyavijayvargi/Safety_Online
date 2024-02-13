@@ -1,4 +1,4 @@
-version: 0.0.11
+version: 0.0.12
 jobId: "991"
 jobName: Audit Details
 jobType: Source Aligned Data Product
@@ -90,12 +90,12 @@ productState:
         sourceColumn: plan_auditee_id
         sourceTable: fpay_audt_plan
       start_date:
-        type: STRING
+        type: DATETIME
         description: start date of audit
         sourceColumn: plan_audt_stdt
         sourceTable: fpay_audt_plan
       end_date:
-        type: STRING
+        type: DATETIME
         description: end date of audit
         sourceColumn: plan_audt_endt
         sourceTable: fpay_audt_plan
@@ -200,22 +200,22 @@ productState:
         sourceColumn: xn_counter_measure
         sourceTable: fpay_audt_xn
       target_start_date:
-        type: STRING
+        type: DATETIME
         description: target start date of audit
         sourceColumn: xn_target_start_date
         sourceTable: fpay_audt_xn
       target_end_date:
-        type: STRING
+        type: DATETIME
         description: target end date for closing of audit
         sourceColumn: xn_target_end_date
         sourceTable: fpay_audt_xn
       actual_start_date:
-        type: STRING
+        type: DATETIME
         description: actual start date of audit
         sourceColumn: xn_actual_start_date
         sourceTable: fpay_audt_xn
       actual_end_date:
-        type: STRING
+        type: DATETIME
         description: actual end date for closing of audit
         sourceColumn: xn_actual_end_date
         sourceTable: fpay_audt_xn
@@ -269,12 +269,12 @@ productState:
         sourceColumn: xn_hira_updated
         sourceTable: fpay_audt_xn
       ETL_Inserted_Date:
-        type: STRING
+        type: DATETIME
         description: ""
         sourceColumn: ""
         sourceTable: ""
-      ETL_Modified_Date:
-        type: STRING
+      ETL_Modified_timestamp:
+        type: DATETIME
         description: ""
         sourceColumn: ""
         sourceTable: ""
