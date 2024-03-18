@@ -1,7 +1,8 @@
-version: 0.0.14
+version: 0.0.15
 jobId: "991"
 jobName: Audit Details
 jobType: Source Aligned Data Product
+domain: safety
 alias: load_auditdetails
 discoveryPort:
   name: Audit Details
@@ -289,7 +290,7 @@ productState:
         sourceColumn: ""
         sourceTable: ""
   stateStoreType: loadDataIceberg
-  isProfilingEnabled: false
+  isProfilingEnabled: true
   updateStrategy: Overwrite
   tableName: msil_dataverse_safety_catalog.Audit_Details
   warehousePath: s3://msil-dataverse-safety/
@@ -306,9 +307,17 @@ productState:
       showData: true
   refreshInterval: 0 4 * * *
 transformation:
-  - alias: query_auditdetails
-    type: SQL
+  - isDynamic: true
+    alias: query_auditdetails
     description: query_auditdetails
+    sequence: 4
+    inputDataFrameList:
+      - inputDataFrame: fpay_audt_exec_1
+        tempViewName: fpay_audt_exec
+      - inputDataFrame: fpay_audt_plan_1
+        tempViewName: fpay_audt_plan
+      - inputDataFrame: fpay_audt_xn_1
+        tempViewName: fpay_audt_xn
     query: SELECT   fap.plan_audt_id AS audit_id,   fap.plan_audt_cat AS
       audit_category,   fap.plan_audit_type AS audit_type,   fap.plan_audt_locn
       AS location,   fap.plan_auditor_id AS auditor_id,   fap.plan_dept_code AS
@@ -347,14 +356,13 @@ transformation:
       fae   on fap.plan_audt_id = fae.exec_audt_id   left join fpay_audt_xn
       fax   on fap.plan_audt_id = fax.xn_audt_id and fae.exec_observation_id =
       fax.xn_observation_id
-    sequenceNo: 4
-    references:
-      - alias: fpay_audt_exec_1
-        sqlReference: fpay_audt_exec
-      - alias: fpay_audt_plan_1
-        sqlReference: fpay_audt_plan
-      - alias: fpay_audt_xn_1
-        sqlReference: fpay_audt_xn
+    optional:
+      persistDataFrame: false
+      loggingOptions:
+        printSchema: true
+        count: true
+        showData: true
+    type: operationThroughSqlQuery
 controlPort:
   dataQualityRules:
     NullValueCheck:
