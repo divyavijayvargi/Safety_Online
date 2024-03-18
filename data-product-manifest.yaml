@@ -1,7 +1,8 @@
-version: 0.0.21
+version: 0.0.22
 jobId: "996"
 jobName: Online Safety Audit
 jobType: Aggregated Data Product
+domain: safety
 alias: load_Iceberg_adp_online_safety
 discoveryPort:
   name: Online Safety Audit
@@ -269,7 +270,7 @@ productState:
         sourceColumn: ""
         sourceTable: ""
   stateStoreType: loadDataIceberg
-  isProfilingEnabled: false
+  isProfilingEnabled: true
   updateStrategy: Overwrite
   tableName: msil_dataverse_safety_catalog.Online_Safety_Audit
   warehousePath: s3://msil-dataverse-safety/
@@ -286,9 +287,17 @@ productState:
       showData: true
   refreshInterval: None
 transformation:
-  - alias: query_adp_online_safety
-    type: SQL
+  - isDynamic: true
+    alias: query_adp_online_safety
     description: query_adp_online_safety
+    sequence: 4
+    inputDataFrameList:
+      - inputDataFrame: Audit_Details_1
+        tempViewName: audit_details
+      - inputDataFrame: Workflow_Details_1
+        tempViewName: workflow_details
+      - inputDataFrame: Employee_Master_1
+        tempViewName: employee_master
     query: "select distinct   ad.audit_id as audit_id,   ad.audit_category as
       audit_category,   ad.audit_type as audit_type,   ad.location as
       location,   ad.auditor_id as auditor_id,   A1.auditor_nm as
@@ -327,14 +336,13 @@ transformation:
       by      employee_id   ) A2 on ad.auditee_id = A2.employee_id   join
       (select distinct wflh_request_id from workflow_details) fw on ad.audit_id
       = fw.wflh_request_id                     "
-    sequenceNo: 4
-    references:
-      - alias: Audit_Details_1
-        sqlReference: audit_details
-      - alias: Workflow_Details_1
-        sqlReference: workflow_details
-      - alias: Employee_Master_1
-        sqlReference: employee_master
+    optional:
+      persistDataFrame: false
+      loggingOptions:
+        printSchema: true
+        count: true
+        showData: true
+    type: operationThroughSqlQuery
 controlPort:
   dataQualityRules:
     NullValueCheck:
