@@ -1,7 +1,8 @@
-version: 0.0.34
+version: 0.0.30
 jobId: "987"
 jobName: Workflow Details
 jobType: Source Aligned Data Product
+domain: safety
 alias: load_workflowdetails
 discoveryPort:
   name: Workflow Details
@@ -67,7 +68,7 @@ productState:
         sourceColumn: ""
         sourceTable: ""
   stateStoreType: loadDataIceberg
-  isProfilingEnabled: false
+  isProfilingEnabled: true
   updateStrategy: Overwrite
   tableName: msil_dataverse_safety_catalog.Workflow_Details
   warehousePath: s3://msil-dataverse-safety/
@@ -84,19 +85,26 @@ productState:
       showData: true
   refreshInterval: 0 4 * * *
 transformation:
-  - alias: query_workflowdetails
-    type: SQL
+  - isDynamic: true
+    alias: query_workflowdetails
     description: query_workflowdetails
+    sequence: 2
+    inputDataFrameList:
+      - inputDataFrame: fpay_wflh_1
+        tempViewName: fpay_wflh
     query: SELECT DISTINCT      wflh_request_id ,     wflh_workflow_type
       ,     wflh_action_taken ,     wflh_action_date ,     current_date as
       ETL_Inserted_Date,   current_date as ETL_Modified_Date,   'Platform_admin'
       as ETL_Created_By,   'Platform_admin' as
       ETL_Updated_By   from     fpay_wflh WHERE      wflh_workflow_type =
       'SAFETYAUD'
-    sequenceNo: 2
-    references:
-      - alias: fpay_wflh_1
-        sqlReference: fpay_wflh
+    optional:
+      persistDataFrame: false
+      loggingOptions:
+        printSchema: true
+        count: true
+        showData: true
+    type: operationThroughSqlQuery
 controlPort:
   dataQualityRules:
     NullValueCheck:
